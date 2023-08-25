@@ -230,6 +230,7 @@ class ImageGenerator:
     def Type_3(self, num, save=False):
         number1 = [cv2.resize(number, (44, 60)) for number in self.Number_y]
         number2 = [cv2.resize(number, (64, 90)) for number in self.Number_y]
+        # resion = [cv2.resize(resion, (88, 60)) for resion in self.Resion_y]
         resion = [cv2.resize(resion, (88, 60)) for resion in self.Resion_y]
         char = [cv2.resize(char1, (64, 62)) for char1 in self.Char1_y]
 
@@ -241,8 +242,8 @@ class ImageGenerator:
             row, col = 8, 76
 
             # resion
-            label += self.resion_list_y[i % 16]
-            Plate[row:row + 60, col:col + 88, :] = resion[i % 16]
+            label += self.resion_list_y[i % resion.__len__()]
+            Plate[row:row + 60, col:col + 88, :] = resion[i % resion.__len__()]
             col += 88 + 8
 
             # number 1
@@ -439,13 +440,13 @@ A = ImageGenerator(img_dir)
 num_img = args.num
 Save = args.save
 
-A.Type_1(num_img, save=Save)
-print("Type 1 finish")
-A.Type_2(num_img, save=Save)
-print("Type 2 finish")
+# A.Type_1(num_img, save=Save)
+# print("Type 1 finish")
+# A.Type_2(num_img, save=Save)
+# print("Type 2 finish")
 A.Type_3(num_img, save=Save)
 print("Type 3 finish")
-A.Type_4(num_img, save=Save)
-print("Type 4 finish")
-A.Type_5(num_img, save=Save)
-print("Type 5 finish")
+# A.Type_4(num_img, save=Save)
+# print("Type 4 finish")
+# A.Type_5(num_img, save=Save)
+# print("Type 5 finish")
